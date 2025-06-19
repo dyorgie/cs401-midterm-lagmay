@@ -11,18 +11,21 @@ use Illuminate\Support\Str;
  */
 class UserFactory extends Factory
 {
+    protected static ?string $password;
     /**
      * Define the model's default state.
+     * 
+     * 
      *
      * @return array<string, mixed>
      */
     public function definition(): array
     {
         return [
-            'first_name' => fake()->name(),
-            'last_name'=> fake()->name(),
+            'first_name' => fake()->firstName(),
+            'last_name'=> fake()->lastName(),
             'user_name' => fake()->name(),
-            'password' => fake('')->password(),
+            'password' => static::$password ??= Hash::make('password'),
             'registration_date' => now(),
         ];
     }

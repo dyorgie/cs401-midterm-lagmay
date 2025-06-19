@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 class User extends Model
 {
     use HasFactory;
+    public $timestamps = false;
     public function student(): HasOne
     {
         return $this->hasOne(Student::class);

@@ -3,12 +3,14 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Teacher;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Teacher>
  */
 class TeacherFactory extends Factory
 {
+    protected $model = Teacher::class;
     /**
      * Define the model's default state.
      *
@@ -17,11 +19,11 @@ class TeacherFactory extends Factory
     public function definition(): array
     {
         return [
-            'first_name' => fake()->name(),
-            'last_name'=> fake()->name(),
+            'first_name' => fake()->firstName(),
+            'last_name'=> fake()->lastName(),
             'email'=> fake()->email(),
-            'department' => $this->faker->randomElement(['Mathematics','Science', 'PE']),
-            'birthday' => fake()->dateofbirth(),
+            'department' => fake()->randomElement(['Mathematics','Science', 'PE']),
+            'birthday' => fake()->date(),
         ];
     }
 }
