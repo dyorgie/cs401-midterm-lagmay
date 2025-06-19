@@ -14,6 +14,6 @@ class StudentSeeder extends Seeder
     public function run(): void
     {
         echo "Running StudentSeeder...\n";
-        Student::factory(3)->create();
+        Student::factory(10)->create();
     }
 }

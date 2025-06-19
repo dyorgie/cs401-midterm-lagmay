@@ -13,6 +13,6 @@ class ScheduleSeeder extends Seeder
      */
     public function run(): void
     {
-        Schedule::factory(3)->create();
+        Schedule::factory(5)->create();
     }
 }
