@@ -17,7 +17,9 @@ class StudentFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'first_name' => fake()->name(),
+            'last_name'=> fake()->name(),
+            'program' => fake()->randomElement(['ComSci','MMA', 'Entrep', 'Fashion']),
         ];
     }
 }

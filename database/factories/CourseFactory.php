@@ -17,7 +17,10 @@ class CourseFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'subject' => fake()->randomElement(['','']),
+            'course_code' => fake()->randomNumber(),
+            'credits' => fake()->numberBetween(5, 15),
+            'description' => fake()->sentence(),
         ];
     }
 }

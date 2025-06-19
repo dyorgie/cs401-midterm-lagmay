@@ -17,7 +17,10 @@ class ScheduleFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'day_of_week' => fake()->randomElement(['Monday','Tuesday', 'Wednesday','Thursday','Friday', 'Saturday']),
+            'time_slot' => fake()->dateTime(),
+            'room' => fake()->randomNumber(20),
+            'term' => fake()->randomNumber(4),
         ];
     }
 }
