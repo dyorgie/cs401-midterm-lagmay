@@ -19,8 +19,8 @@ class ScheduleFactory extends Factory
         return [
             'day_of_week' => fake()->randomElement(['Monday','Tuesday', 'Wednesday','Thursday','Friday', 'Saturday']),
             'time_slot' => fake()->dateTime(),
-            'room' => fake()->randomNumber(20),
-            'term' => fake()->randomNumber(4),
+            'room' => fake()->numerify('###'),
+            'term' => fake()->randomElement(['1st','2nd', '3rd']),
         ];
     }
 }

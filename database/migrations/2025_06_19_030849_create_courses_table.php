@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('course_code')->max(10)->comment('specific course code');
             $table->integer('credits')->comment('number of credits of course');
             $table->string('description')->comment('description of course');
+            
         });
     }
 
