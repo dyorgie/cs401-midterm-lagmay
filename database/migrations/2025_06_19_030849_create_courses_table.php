@@ -13,7 +13,10 @@ return new class extends Migration
     {
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('subject')->max(50)->comment('subject name');
+            $table->string('course_code')->max(10)->comment('specific course code');
+            $table->integer('credits')->comment('number of credits of course');
+            $table->string('description')->comment('description of course');
         });
     }
 

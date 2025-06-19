@@ -13,7 +13,10 @@ return new class extends Migration
     {
         Schema::create('schedules', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('day_of_week')->max(10)->comment('specific day');
+            $table->dateTime('time_slot')->comment('specific time');
+            $table->string('room')->max(20)->comment('specific room of subject');
+            $table->integer('term')->comment('current term');
         });
     }
 
