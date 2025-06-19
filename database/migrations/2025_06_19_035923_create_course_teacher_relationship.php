@@ -12,8 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('course_teacher_relationship', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->unsignedBigInteger('course_id');
+            $table->unsignedBigInteger('teacher_id');
+            $table->foreign('course_id')->references('id')->on('courses');
+            $table->foreign('teacher_id')->references('id')->on('teachers');
         });
     }
 
@@ -22,6 +24,14 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('course_teacher_relationship');
+        Schema::table('courses', function (Blueprint $table) {
+            $table->dropForeign(['course_id']);
+            $table->dropColumn('course_id');
+        });
+
+        Schema::table('teachers', function (Blueprint $table) {
+            $table->dropForeign(['teacher_id']);
+            $table->dropColumn('teacher_id');
+        });
     }
 };

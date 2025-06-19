@@ -12,8 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('class_student_relationship', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->unsignedBigInteger('course_id');
+            $table->unsignedBigInteger('student_id');
+            $table->foreign('course_id')->references('id')->on('courses');
+            $table->foreign('student_id')->references('id')->on('students');
         });
     }
 
@@ -22,6 +24,14 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('class_student_relationship');
+        Schema::table('courses', function (Blueprint $table) {
+            $table->dropForeign(['course_id']);
+            $table->dropColumn('course_id');
+        });
+
+        Schema::table('students', function (Blueprint $table) {
+            $table->dropForeign(['student_id']);
+            $table->dropColumn('student_id');
+        });
     }
 };
