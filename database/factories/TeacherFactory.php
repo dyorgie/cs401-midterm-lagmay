@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\Teacher;
+use App\Models\User;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Teacher>
@@ -24,6 +25,7 @@ class TeacherFactory extends Factory
             'email'=> fake()->email(),
             'department' => fake()->randomElement(['Mathematics','Science', 'PE']),
             'birthday' => fake()->date(),
+            'user_id' => User::factory(),
         ];
     }
 }

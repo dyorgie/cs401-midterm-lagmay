@@ -10,6 +10,7 @@ use App\Models\User;
  */
 class StudentFactory extends Factory
 {
+    
     /**
      * Define the model's default state.
      *
