@@ -15,7 +15,7 @@ return new class extends Migration
             $table->string('first_name')->comment('user first name.');
             $table->string('last_name')->comment('user last name.');
             $table->string('email')->max(50)->comment('teachers email');
-            $table->string('department')->comment->max(10)('department of teacher');
+            $table->string('department')->max(10)->comment('department of teacher');
             $table->dateTime('birthday')->comment('teacher birthday');
         });
 }
